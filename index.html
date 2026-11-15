@@ -860,6 +860,13 @@
   .gift-adm-qr canvas,.gift-adm-qr img{display:block;width:100%;height:auto;}
   .gift-adm-act{flex:1;display:flex;flex-direction:column;gap:6px;align-items:flex-start;}
   .gift-adm-act .file-btn{width:auto;padding:9px 16px;font-size:13px;}
+  html[data-theme="dawn"] .reg-deadline{margin:0 0 28px;padding:16px 12px 18px;background:#F7EEF3;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;position:relative;}
+  html[data-theme="dawn"] .reg-deadline::before{content:'';position:absolute;inset:5px;border:1px solid rgba(201,129,158,.35);pointer-events:none;}
+  html[data-theme="dawn"] .reg-deadline.hide{display:none;}
+  html[data-theme="dawn"] .reg-deadline .dl-k{font-size:13.5px;color:#C9819E;}
+  html[data-theme="dawn"] .reg-deadline b{font-weight:500;font-size:21px;color:#4A3346;line-height:1.5;}
+  html[data-theme="dawn"] .reg-deadline span:last-child{font-size:13px;color:#7D6273;line-height:1.55;max-width:270px;}
+  .hero-deadline{margin-top:12px;font-size:13px;color:#6E5468;}
 </style>
 </head>
 <body>
@@ -891,6 +898,7 @@
     <div class="ed-ln"></div>
     <p class="ed-meta">วันพฤหัสบดีที่ 21 มกราคม 2570<br>ฤกษ์สวมแหวน 08.20 น. ริมธารา พระราม 3</p>
     <a class="hero-cta" href="#register">ลงทะเบียนเข้าร่วมงาน</a>
+      <p class="hero-deadline hide" id="heroDeadline"></p>
   </div>
 </div>
 
@@ -962,6 +970,11 @@
         </div>
         <div class="t-row">
           <div class="t-time eng">11:00</div>
+          <div class="t-dot-col"><div class="t-dot"></div><div class="t-line"></div></div>
+          <div class="t-label">ตัดเค้ก</div>
+        </div>
+        <div class="t-row">
+          <div class="t-time eng">11:30</div>
           <div class="t-dot-col"><div class="t-dot"></div></div>
           <div class="t-label">ร่วมรับประทานอาหาร</div>
         </div>
@@ -1066,7 +1079,7 @@
 
       <form id="regForm" novalidate>
         <p class="reg-intro">รบกวนลงทะเบียนล่วงหน้า เพื่อให้บ่าวสาวเตรียมที่นั่งและอาหารได้อย่างพอดี</p>
-        <p class="reg-deadline hide" id="regDeadline"></p>
+        <div class="reg-deadline hide" id="regDeadline"></div>
 
         <div class="fg-title">ข้อมูลของท่าน</div>
         <div class="field" data-f="fullName">
@@ -1246,14 +1259,6 @@
   </section>
 
 
-  <!-- SHARE E-CARD -->
-  <section id="share">
-    <header class="sec-head"><h2>ส่งต่อการ์ดเชิญ</h2><div class="orn" aria-hidden="true"><span></span><svg><use href="#hib-mini"/></svg><span></span></div></header>
-    <div class="card lux share-wrap">
-      <p class="plan-sub">สแกนเพื่อเปิดการ์ดเชิญนี้ หรือบันทึกรูปไปส่งต่อ</p>
-      <div id="shareBox"></div>
-    </div>
-  </section>
 
   <!-- CLOSING -->
   <footer class="closing">
@@ -1354,7 +1359,7 @@
             </div>
             <div class="admin-block">
               <h4 class="admin-h">วันปิดรับลงทะเบียน</h4>
-              <div class="field"><label for="set_deadline">แสดงใต้หัวฟอร์มลงทะเบียน (เว้นว่างได้)</label><input type="text" id="set_deadline" placeholder="เช่น 31 ธันวาคม 2569"></div>
+              <div class="field"><label for="set_deadline">แสดงในหน้าแรกและหัวฟอร์มลงทะเบียน</label><input type="text" id="set_deadline" placeholder="เช่น 31 ธันวาคม 2569"></div>
             </div>
             <div class="admin-actions">
               <button type="button" class="btn" id="saveInfo">บันทึกข้อมูลการ์ด</button>
@@ -1399,7 +1404,7 @@ const GIFT = {
   qrPayload: '00020101021129390016A000000677010111031500499925433780053037645802TH63040851',
   accountName: 'น.ส. ภัสก์วรินทร์ ว่องวรภัทร', bankName: 'ธนาคารกสิกรไทย', accountNo: 'xxx-x-x7784-x'
 };
-const RSVP_DEADLINE = '';
+const RSVP_DEADLINE = '5 มกราคม 2570';   // วันปิดรับลงทะเบียน (แก้ได้ที่หน้าผู้จัดงาน → ข้อมูลการ์ด)
 const BUILTIN_MUSIC = { src: 'wedding-song.mp3', name: 'Canon in D — เปียโน' };
 const galleryPhotos = [];   // หรือใส่ชื่อไฟล์รูปที่อยู่โฟลเดอร์เดียวกัน เช่น 'photos/couple1.jpg'
 
@@ -1760,9 +1765,14 @@ function renderContacts(){
 /* ---------- Registration deadline ---------- */
 function renderDeadline(){
   const el = document.getElementById('regDeadline');
-  const d = String(SETTINGS.deadline || '').trim();
-  el.textContent = d ? 'กรุณาลงทะเบียนภายใน ' + d : '';
+  const d = String(SETTINGS.deadline || RSVP_DEADLINE || '').trim().replace(/^(ภายใน)?\s*(วันที่)?\s*/, '');
+  el.innerHTML = d ? `<span class="dl-k">ขอความกรุณาลงทะเบียนภายในวันที่</span><b>${escapeHtml(d)}</b><span>เพื่อให้บ่าวสาวสำรองโต๊ะและอาหาร<br>กับทางสถานที่ได้ครบถ้วน</span>` : '';
   el.classList.toggle('hide', !d);
+  const intro = document.querySelector('#regForm .reg-intro');
+  if (intro) intro.classList.toggle('hide', !!d);   // the deadline box already asks guests to register early
+  const h = document.getElementById('heroDeadline');
+  h.textContent = d ? 'โปรดลงทะเบียนภายในวันที่ ' + d : '';
+  h.classList.toggle('hide', !d);
 }
 
 /* ---------- Registration form ---------- */
@@ -2505,35 +2515,6 @@ function ecardUrl(){
   if (/^https?:$/.test(location.protocol)) return location.origin + location.pathname;
   return '';
 }
-(function renderShare(){
-  const box = document.getElementById('shareBox');
-  const url = ecardUrl();
-  if (!url){
-    box.innerHTML = '<p class="cfg-hint">QR Code จะสร้างให้อัตโนมัติเมื่อนำการ์ดขึ้นเว็บแล้ว<br>(หรือใส่ลิงก์การ์ดในตัวแปร <code>ECARD_URL</code>)</p>';
-    return;
-  }
-  const canShare = !!navigator.share;
-  box.innerHTML = `
-    <div class="qr-frame"><canvas id="shareQr" aria-label="QR Code การ์ดเชิญ"></canvas><div class="qr-cap">SCAN TO OPEN</div></div>
-    <div class="share-actions">
-      <button type="button" class="btn" id="qrSave">บันทึกรูป QR</button>
-      <button type="button" class="btn secondary" id="qrCopy">คัดลอกลิงก์</button>
-      <a class="btn line ${canShare ? '' : 'full'}" id="qrLine" target="_blank" rel="noopener">ส่งทาง LINE</a>
-      ${canShare ? '<button type="button" class="btn secondary" id="qrShare">แชร์…</button>' : ''}
-    </div>
-    <p class="share-url">${escapeHtml(url)}</p>`;
-  const draw = () => QR.toCanvas(document.getElementById('shareQr'), url,
-    { level: 'H', dark: '#3E2A3B', light: '#ffffff', px: 520, margin: 2, badge: 'ก&ภ' });
-  draw();
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
-  const msg = 'ขอเรียนเชิญร่วมงานมงคลสมรส ภัสก์วรินทร์ & กวินท์ · 21 มกราคม 2570 ณ ริมธารา พระราม 3';
-  document.getElementById('qrLine').href = 'https://line.me/R/share?text=' + encodeURIComponent(msg + '\n' + url);
-  document.getElementById('qrCopy').addEventListener('click', () => copyText(url, 'คัดลอกลิงก์แล้ว'));
-  document.getElementById('qrSave').addEventListener('click', () => saveQrCard(url));
-  if (canShare) document.getElementById('qrShare').addEventListener('click', () => {
-    navigator.share({ title: 'ภัสก์วรินทร์ & กวินท์ | Wedding', text: msg, url }).catch(() => {});
-  });
-})();
 
 // Builds a printable QR card (PNG) with names + date and downloads it
 async function saveQrCard(url){
@@ -2652,7 +2633,7 @@ const EVENT = {
   start: '20270121T010000Z',   // 08:00 น. เวลาไทย
   end:   '20270121T060000Z',   // 13:00 น. เวลาไทย
   location: 'ริมธารา พระราม 3 กรุงเทพฯ',
-  details: 'ต้อนรับแขก 08:00 น. / พิธีสวมแหวน 08:20 น. / รับไหว้ 09:00 น. / ร่วมรับประทานอาหาร 11:00 น.'
+  details: 'ต้อนรับแขก 08:00 น. / พิธีสวมแหวน 08:20 น. / รับไหว้ 09:00 น. / ตัดเค้ก 11:00 น. / ร่วมรับประทานอาหาร 11:30 น.'
 };
 (function setupCalendar(){
   const link = ecardUrl();
@@ -3031,7 +3012,7 @@ document.getElementById('musicInput').addEventListener('change', async e => {
 
 // card details
 const INFO_FIELDS = ['giftName', 'giftBank', 'giftAccount', 'deadline'];
-const INFO_DEFAULTS = { giftName: GIFT.accountName, giftBank: GIFT.bankName, giftAccount: GIFT.accountNo, deadline: '' };
+const INFO_DEFAULTS = { giftName: GIFT.accountName, giftBank: GIFT.bankName, giftAccount: GIFT.accountNo, deadline: RSVP_DEADLINE };
 function fillInfoForm(){
   const c = adminSettings.contacts || [];
   [0, 1].forEach(i => {
