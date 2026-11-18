@@ -1001,6 +1001,64 @@
   .sched-row .s-label{flex:1;min-width:0;padding:9px 10px;border:1px solid #E2D3C8;font-family:inherit;font-size:15px;color:#4A3346;}
   .sched-row .s-del{width:36px;height:38px;flex-shrink:0;border:1px solid #E2D3C8;background:#fff;color:#A8674F;font-size:14px;cursor:pointer;}
   .sched-add{width:auto;padding:9px 16px;font-size:13.5px;margin-top:4px;}
+  .sc-result{overflow-y:auto;justify-content:flex-start;padding-top:22px;}
+  .sc-door{margin-top:10px;width:100%;max-width:300px;text-align:left;font-size:14px;}
+  .sc-door summary{cursor:pointer;text-align:center;color:#4A3346;text-decoration:underline;font-size:13.5px;padding:4px;}
+  .sc-door-row{display:flex;align-items:center;gap:10px;margin:10px 0;}
+  .sc-door-row > span{width:52px;color:#7D6273;}
+  .sc-door-row b{font-family:'Cormorant Garamond',serif;font-size:30px;min-width:34px;text-align:center;}
+  .sc-door-row small{color:#7D6273;font-size:12px;}
+  .sc-door-row select{flex:1;padding:8px;font-family:inherit;font-size:15px;border:1px solid #E2D3C8;}
+  .sc-step{width:40px;height:40px;border:1px solid #4A3346;background:#fff;color:#4A3346;font-size:20px;cursor:pointer;}
+  .sc-door .btn{padding:10px;}
+  .sc-door-msg{font-size:12.5px;margin-top:6px;color:#7D6273;}
+  .sc-door-msg.ok{color:#1F6B35;} .sc-door-msg.bad{color:#8E2C3D;}
+  .sc-tools{display:flex;gap:8px;margin-bottom:10px;}
+  .sc-tool{flex:1;padding:10px 6px;background:rgba(255,241,227,.1);border:1px solid rgba(255,241,227,.3);color:#FFF1E3;font-family:inherit;font-size:13.5px;cursor:pointer;}
+  .sc-walk{background:rgba(255,241,227,.08);padding:12px;margin-bottom:12px;display:flex;flex-direction:column;gap:10px;}
+  .sc-walk.hide{display:none;}
+  .sc-walk input,.sc-walk select{padding:10px;font-family:inherit;font-size:15px;border:none;}
+  .sc-walk-row{display:flex;gap:10px;}
+  .sc-walk-row label{flex:1;display:flex;flex-direction:column;gap:4px;font-size:13px;}
+  .sc-walk .btn{background:#C9819E;border-color:#C9819E;color:#fff;}
+
+  .db-overlay{position:fixed;inset:0;z-index:1200;background:linear-gradient(180deg,#B7C2E8 0%,#D9C3E2 35%,#F1CBD3 70%,#FFF1E3 100%);color:#4A3346;font-family:'Taviraj',serif;overflow-y:auto;font-variant-numeric:lining-nums;}
+  .db-overlay.hide{display:none;}
+  .db-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 6px;max-width:900px;margin:0 auto;}
+  .db-head b{font-weight:500;font-size:18px;} .db-head span{font-size:13px;color:#7D6273;}
+  .db-head .sc-x{color:#4A3346;}
+  .db-login{max-width:340px;margin:40px auto;padding:0 20px;display:flex;flex-direction:column;gap:12px;text-align:center;}
+  .db-login.hide,.db-body.hide{display:none;}
+  .db-login input{padding:14px;font-size:22px;text-align:center;letter-spacing:.3em;border:1px solid #E2D3C8;}
+  .db-body{max-width:900px;margin:0 auto;padding:4px 16px 30px;}
+  .db-hero{background:#FFFDF9;padding:20px 18px;text-align:center;box-shadow:0 20px 40px -28px rgba(58,38,55,.5);}
+  .db-big b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:84px;line-height:1;}
+  .db-big span{font-family:'Cormorant Garamond',serif;font-size:30px;color:#7D6273;margin-left:6px;}
+  .db-cap{font-size:13.5px;color:#7D6273;margin-top:2px;}
+  .db-bar{height:10px;background:#EFE4EC;margin-top:14px;}
+  .db-bar i{display:block;height:100%;background:linear-gradient(90deg,#C9819E,#4A3346);transition:width .8s ease;}
+  .db-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px;}
+  @media (min-width:700px){ .db-tiles{grid-template-columns:repeat(4,1fr);} }
+  .db-tiles > div{background:rgba(255,253,249,.85);padding:12px 10px;text-align:center;}
+  .db-tiles b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:38px;line-height:1.05;}
+  .db-tiles b small{font-size:20px;color:#7D6273;}
+  .db-tiles span{font-size:12.5px;color:#7D6273;}
+  .db-h{font-weight:500;font-size:15px;margin:22px 0 10px;}
+  .db-h small{font-weight:400;font-size:12px;color:#7D6273;margin-left:6px;}
+  .db-tables{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+  .db-t{background:#FFFDF9;padding:8px 6px;text-align:center;border:1px solid #E7DCE6;}
+  .db-t.z-vip{background:#FBF1DC;border-color:#E3C27A;} .db-t.z-friends{background:#FBEBEC;border-color:#EDB8BF;} .db-t.z-reserve{background:#F6F0FA;border:1px dashed #9C86B0;}
+  .db-t.over{box-shadow:inset 0 0 0 2px #C0475A;}
+  .db-tn{font-size:12px;color:#7D6273;}
+  .db-tv{font-family:'Cormorant Garamond',serif;font-size:16px;color:#7D6273;}
+  .db-tv b{font-size:26px;color:#4A3346;font-weight:500;}
+  .db-tb{height:4px;background:#EFE4EC;margin-top:4px;} .db-tb i{display:block;height:100%;background:#4A3346;}
+  .db-t.over .db-tb i{background:#C0475A;}
+  .db-recent > div{display:flex;align-items:baseline;gap:10px;padding:8px 2px;border-bottom:1px solid rgba(74,51,70,.12);font-size:14px;}
+  .db-recent .t{font-family:'Cormorant Garamond',serif;font-size:16px;color:#B8894A;width:58px;flex-shrink:0;}
+  .db-recent b{font-weight:500;flex:1;}
+  .db-recent em{font-style:normal;font-size:11px;background:#F1CBD3;padding:1px 6px;}
+  .db-recent span:last-child{color:#7D6273;font-size:13px;}
 </style>
 </head>
 <body>
@@ -1457,7 +1515,8 @@
             <div class="admin-block">
               <h4 class="admin-h">สแกนบัตรเข้างาน</h4>
               <button type="button" class="btn" id="openScanBtn">เปิดกล้องสแกนรับแขก</button>
-              <p class="admin-note">เจ้าหน้าที่หน้างานเปิดลิงก์ด้านล่างบนมือถือของตัวเอง ใส่ PIN แล้วสแกน QR บนบัตรของแขกได้เลย (ใช้ได้ทั้ง iPhone และ Android)</p>
+              <button type="button" class="btn secondary" id="openDashBtn">ดูสรุปยอดเรียลไทม์</button>
+              <p class="admin-note">ดูสรุปยอดบนจอใหญ่/แท็บเล็ตได้ที่ลิงก์เดียวกันโดยเติม <code>?dashboard</code> แทน <code>?staff</code> · เจ้าหน้าที่หน้างานเปิดลิงก์ด้านล่างบนมือถือของตัวเอง ใส่ PIN แล้วสแกน QR บนบัตรของแขกได้เลย (ใช้ได้ทั้ง iPhone และ Android)</p>
               <div class="copy-row"><code id="staffLink"></code><button type="button" class="copy-btn" id="staffLinkCopy">คัดลอก</button></div>
             </div>
             <div class="admin-block">
@@ -1547,12 +1606,38 @@
       <div class="sc-result hide" id="scResult" aria-live="assertive"></div>
     </div>
     <p class="sc-tip">หันกล้องไปที่ QR บนบัตรเข้างานของแขก</p>
+    <div class="sc-tools">
+      <button type="button" class="sc-tool" id="scWalkBtn">+ แขกที่ไม่ได้ลงทะเบียน</button>
+      <button type="button" class="sc-tool" id="scDashBtn">สรุปยอดเรียลไทม์</button>
+    </div>
+    <div class="sc-walk hide" id="scWalk">
+      <input type="text" id="wkName" placeholder="ชื่อแขก" maxlength="60">
+      <div class="sc-walk-row">
+        <label>จำนวน <input type="number" id="wkCount" value="1" min="1" max="40" inputmode="numeric"></label>
+        <label>โต๊ะ <select id="wkTable"></select></label>
+      </div>
+      <button type="button" class="btn" id="wkSave">บันทึกและเช็คอิน</button>
+    </div>
     <div class="sc-search">
       <input type="search" id="scQ" placeholder="ค้นหาชื่อแขก / รหัสบัตร (กรณีไม่มี QR)" autocomplete="off">
       <div id="scList"></div>
     </div>
     <button type="button" class="link-btn sc-out" id="scLogout">ออกจากระบบเจ้าหน้าที่</button>
   </div>
+</div>
+
+<div class="db-overlay hide" id="dbOverlay" role="dialog" aria-modal="true" aria-label="สรุปยอดผู้มาร่วมงาน">
+  <div class="db-head">
+    <div><b>สรุปยอดผู้มาร่วมงาน</b><span id="dbTime"></span></div>
+    <button type="button" class="sc-x" id="dbClose" aria-label="ปิด">✕</button>
+  </div>
+  <div class="db-login hide" id="dbLogin">
+    <p>ใส่ PIN เจ้าหน้าที่ หรือรหัสผู้จัดงาน</p>
+    <input type="password" id="dbPin" inputmode="numeric" placeholder="PIN">
+    <button type="button" class="btn" id="dbLoginBtn">ดูสรุปยอด</button>
+    <p class="sc-err" id="dbErr"></p>
+  </div>
+  <div class="db-body hide" id="dbBody"></div>
 </div>
 
 <script>
@@ -2586,8 +2671,44 @@ function scShow(kind, html){
   if (kind === 'ok') scAuto = setTimeout(scNext, 4000);
 }
 function scNext(){ clearTimeout(scAuto); scResult.classList.add('hide'); scBusy = false; scLast.at = Date.now(); }
-scResult.addEventListener('click', e => {
+function tableOptions(cur, withNone){
+  return (withNone ? ['<option value="">รอจัด</option>'] : []).concat([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n =>
+    `<option value="${n}" ${+cur === n ? 'selected' : ''}>โต๊ะ ${n}${n === 8 ? ' (สำรอง VIP)' : ''}</option>`)).join('');
+}
+function doorEditor(t){
+  const cur = t.actual !== '' && t.actual !== undefined ? t.actual : t.count;
+  return `<details class="sc-door"><summary>แก้จำนวนคนที่มาจริง / ย้ายโต๊ะ</summary>
+    <div class="sc-door-row"><span>มาจริง</span>
+      <button type="button" class="sc-step" data-sc="minus" aria-label="ลด">−</button>
+      <b id="scActual">${cur}</b>
+      <button type="button" class="sc-step" data-sc="plus" aria-label="เพิ่ม">+</button>
+      <small>ลงทะเบียนไว้ ${t.count}</small></div>
+    <div class="sc-door-row"><span>โต๊ะ</span><select id="scTable">${tableOptions(t.table, true)}</select></div>
+    <button type="button" class="btn" data-sc="save" data-id="${escapeHtml(t.id)}">บันทึก</button>
+    <p class="sc-door-msg" id="scDoorMsg"></p>
+  </details>`;
+}
+scResult.addEventListener('click', async e => {
+  if (e.target.closest('.sc-door')) clearTimeout(scAuto);     // staff is editing: don't jump to the next scan
   const b = e.target.closest('[data-sc]'); if (!b) return;
+  if (b.dataset.sc === 'plus' || b.dataset.sc === 'minus'){
+    const el = document.getElementById('scActual');
+    el.textContent = Math.max(0, Math.min(40, (+el.textContent || 0) + (b.dataset.sc === 'plus' ? 1 : -1)));
+    return;
+  }
+  if (b.dataset.sc === 'save'){
+    const msg = document.getElementById('scDoorMsg');
+    b.disabled = true; msg.textContent = 'กำลังบันทึก…'; msg.className = 'sc-door-msg';
+    const out = await staffPost({ action: 'doorUpdate', id: b.dataset.id, actual: +document.getElementById('scActual').textContent, table: document.getElementById('scTable').value });
+    b.disabled = false;
+    if (!out.ok){ msg.textContent = 'บันทึกไม่สำเร็จ: ' + (out.error || ''); msg.className = 'sc-door-msg bad'; return; }
+    document.getElementById('scTblNow').textContent = out.ticket.table || '—';
+    document.getElementById('scCntNow').textContent = out.ticket.actual;
+    const L = out.table;
+    msg.innerHTML = L ? `บันทึกแล้ว · โต๊ะ ${L.n} ตอนนี้มีแขกมาแล้ว ${L.arrived} คน (จองไว้ ${L.expected})` + (L.arrived > SEATS_PER_TABLE ? ' — <b>เกิน ' + SEATS_PER_TABLE + ' ที่ ต้องเสริมเก้าอี้</b>' : '') : 'บันทึกแล้ว';
+    msg.className = 'sc-door-msg ' + (L && L.arrived > SEATS_PER_TABLE ? 'bad' : 'ok');
+    return;
+  }
   if (b.dataset.sc === 'next') scNext();
   if (b.dataset.sc === 'undo') scCheckin(b.dataset.id, true);
 });
@@ -2609,8 +2730,9 @@ async function scCheckin(code, undo){
     <div class="sc-st">${head}</div>
     <div class="sc-name">${escapeHtml(t.nickname)}</div>
     <div class="sc-full">${escapeHtml(t.fullName)}${t.relation ? ' · ' + escapeHtml(t.relation) : ''}</div>
-    <div class="sc-grid"><div><small>โต๊ะ</small><b>${t.table || '—'}</b></div><div><small>จำนวน</small><b>${t.count}</b><span>ท่าน</span></div></div>
+    <div class="sc-grid"><div><small>โต๊ะ</small><b id="scTblNow">${t.table || '—'}</b></div><div><small>${t.actual !== '' && t.actual !== undefined ? 'มาจริง' : 'จำนวน'}</small><b id="scCntNow">${t.actual !== '' && t.actual !== undefined ? t.actual : t.count}</b><span>ท่าน</span></div></div>
     ${t.allergy ? `<div class="sc-allergy">แพ้อาหาร: ${escapeHtml(t.allergy)}</div>` : ''}
+    ${(kind === 'ok' || kind === 'warn') ? doorEditor(t) : ''}
     ${(kind === 'ok' || kind === 'warn') ? `<button type="button" class="link-btn sc-undo" data-sc="undo" data-id="${escapeHtml(t.id)}">ยกเลิกการเช็คอิน</button>` : ''}`);
   if (scEl('scQ').value.trim()) scSearch();
 }
@@ -2628,6 +2750,85 @@ async function scSearch(){
     </div>`).join('') : '<p class="sc-none">ไม่พบชื่อนี้</p>';
 }
 scEl('scList').addEventListener('click', e => { const b = e.target.closest('[data-ci]'); if (b) scCheckin(b.dataset.ci); });
+// walk-in guests (not registered): recorded and checked in on the spot
+scEl('wkTable').innerHTML = tableOptions(8, true);
+scEl('scWalkBtn').addEventListener('click', () => { scEl('scWalk').classList.toggle('hide'); scEl('wkName').focus(); });
+scEl('wkSave').addEventListener('click', async () => {
+  const name = scEl('wkName').value.trim(), count = +scEl('wkCount').value;
+  if (!name){ scEl('wkName').focus(); return; }
+  const b = scEl('wkSave'); b.disabled = true;
+  const out = await staffPost({ action: 'walkIn', name, count, table: scEl('wkTable').value });
+  b.disabled = false;
+  if (!out.ok){ alert('บันทึกไม่สำเร็จ: ' + (out.error || '')); return; }
+  scEl('wkName').value = ''; scEl('wkCount').value = 1; scEl('scWalk').classList.add('hide');
+  const t = out.ticket;
+  scShow('ok', `<div class="sc-st">เพิ่มแขกหน้างานแล้ว</div><div class="sc-name">${escapeHtml(t.nickname)}</div>
+    <div class="sc-grid"><div><small>โต๊ะ</small><b>${t.table || '—'}</b></div><div><small>มาจริง</small><b>${t.actual}</b><span>ท่าน</span></div></div>`);
+});
+scEl('scDashBtn').addEventListener('click', () => openDashboard());
+
+/* ---------- Live dashboard (?dashboard) ---------- */
+const dbOverlay = scEl('dbOverlay'), dbBody = scEl('dbBody');
+let dbTimer = null;
+function openDashboard(){
+  dbOverlay.classList.remove('hide');
+  document.documentElement.classList.add('tk-open');
+  if (store.get(STAFF_KEY)) dbRefresh(); else { scEl('dbLogin').classList.remove('hide'); dbBody.classList.add('hide'); }
+}
+function closeDashboard(){
+  clearTimeout(dbTimer); dbOverlay.classList.add('hide');
+  if (scOverlay.classList.contains('hide')) document.documentElement.classList.remove('tk-open');
+  if (/[?&]dashboard\b/.test(location.search)) try{ history.replaceState(null, '', location.pathname + location.hash); }catch(e){}
+}
+scEl('dbClose').addEventListener('click', closeDashboard);
+scEl('dbLoginBtn').addEventListener('click', async () => {
+  const pin = scEl('dbPin').value.trim(); if (!pin) return;
+  store.set(STAFF_KEY, pin);
+  const out = await staffPost({ action: 'staffLogin' });
+  if (!out.ok){ staffLogout(); scEl('dbErr').textContent = 'PIN ไม่ถูกต้อง'; return; }
+  store.set(STAFF_NAME_KEY, out.name || '');
+  scEl('dbLogin').classList.add('hide'); dbRefresh();
+});
+async function dbRefresh(){
+  clearTimeout(dbTimer);
+  if (dbOverlay.classList.contains('hide')) return;
+  if (!document.hidden){
+    const d = await staffPost({ action: 'dashboard' });
+    if (!d.ok && d.error === 'unauthorized'){ staffLogout(); scEl('dbLogin').classList.remove('hide'); dbBody.classList.add('hide'); return; }
+    if (d.ok) dbRender(d);
+  }
+  dbTimer = setTimeout(dbRefresh, 8000);
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden && !dbOverlay.classList.contains('hide')) dbRefresh(); });
+function dbRender(d){
+  dbBody.classList.remove('hide');
+  scEl('dbTime').textContent = ' · อัปเดต ' + new Date(d.updatedAt).toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const pct = d.expected ? Math.min(100, Math.round(d.arrived / d.expected * 100)) : 0;
+  const zoneOf = n => zoneOfTable(n) || 'general';
+  dbBody.innerHTML = `
+    <div class="db-hero">
+      <div class="db-big"><b>${d.arrived}</b><span>คน</span></div>
+      <div class="db-cap">มาถึงแล้ว · ลงทะเบียนไว้ ${d.expected} คน${d.walkinPeople ? ' · รวมแขกหน้างาน ' + d.walkinPeople + ' คน' : ''}</div>
+      <div class="db-bar"><i style="width:${pct}%"></i></div>
+    </div>
+    <div class="db-tiles">
+      <div><b>${d.inParties}<small>/${d.parties}</small></b><span>กลุ่มที่เช็คอินแล้ว</span></div>
+      <div><b>${d.notYetPeople}</b><span>คนที่ยังไม่มา (${d.notYet} กลุ่ม)</span></div>
+      <div><b>+${d.extra}</b><span>มาเกินจากที่ลงทะเบียน</span></div>
+      <div><b>${d.walkinPeople}</b><span>แขกหน้างาน (${d.walkins} กลุ่ม)</span></div>
+    </div>
+    <h4 class="db-h">รายโต๊ะ <small>มาแล้ว / จองไว้ · โต๊ะละ ${d.seats} ที่</small></h4>
+    <div class="db-tables">${d.tables.map(t => {
+      const over = t.arrived > d.seats || t.expected > d.seats;
+      return `<div class="db-t z-${zoneOf(t.n)} ${over ? 'over' : ''}">
+        <div class="db-tn">${t.n}</div>
+        <div class="db-tv"><b>${t.arrived}</b>/${t.expected}</div>
+        <div class="db-tb"><i style="width:${Math.min(100, t.arrived / d.seats * 100)}%"></i></div>
+      </div>`; }).join('')}</div>
+    <h4 class="db-h">เช็คอินล่าสุด</h4>
+    <div class="db-recent">${d.recent.length ? d.recent.map(r => `<div><span class="t">${escapeHtml(r.time)}</span><b>${escapeHtml(r.name)}</b>${r.walk ? '<em>หน้างาน</em>' : ''}<span>โต๊ะ ${r.table || '—'} · ${r.people} คน</span></div>`).join('') : '<p>ยังไม่มีแขกเช็คอิน</p>'}</div>`;
+}
+if (/[?&]dashboard\b/.test(location.search)) openDashboard();
 if (/[?&]staff\b/.test(location.search)) openScanner();
 
 (function ticketFromUrl(){
@@ -3145,6 +3346,9 @@ async function unlockAdmin(){
     btn.disabled = false; btn.textContent = 'เข้าสู่ระบบ';
   }
 }
+document.getElementById('openDashBtn').addEventListener('click', () => {
+  store.set(STAFF_KEY, adminKey); store.set(STAFF_NAME_KEY, 'ผู้จัดงาน'); openDashboard();
+});
 document.getElementById('openScanBtn').addEventListener('click', () => {
   store.set(STAFF_KEY, adminKey); store.set(STAFF_NAME_KEY, 'ผู้จัดงาน'); openScanner();
 });
@@ -3204,6 +3408,7 @@ function rowZone(r){
   return n ? zoneOfTable(n) : 'pending';
 }
 const rowCount = r => parseInt(r['จำนวนคน']) || 0;
+const rowSeats = r => (r['มาจริง'] === '' || r['มาจริง'] == null) ? rowCount(r) : (parseInt(r['มาจริง']) || 0);
 function renderAdmin(){
   const coming = regRows.filter(r => rowZone(r) !== 'decline');
   const guests = coming.reduce((s, r) => s + rowCount(r), 0);
@@ -3211,9 +3416,9 @@ function renderAdmin(){
   document.getElementById('statTotal').textContent = regRows.length;
   document.getElementById('statGuests').textContent = guests;
   document.getElementById('statDecline').textContent = regRows.length - coming.length;
-  document.getElementById('statCheckin').textContent = inRows.reduce((s, r) => s + rowCount(r), 0);
+  document.getElementById('statCheckin').textContent = inRows.reduce((s, r) => s + rowSeats(r), 0);
   const used = {};
-  coming.forEach(r => { const n = tableNum(r['โต๊ะ']); if (n) used[n] = (used[n] || 0) + rowCount(r); });
+  coming.forEach(r => { const n = tableNum(r['โต๊ะ']); if (n) used[n] = (used[n] || 0) + rowSeats(r); });
   const order = ['vip', 'friends', 'general', 'reserve'];
   document.getElementById('tblGrid').innerHTML = order.map(z => ZONES[z].tables.map(n => {
     const u = used[n] || 0;
@@ -3284,7 +3489,7 @@ function showTab(tab){
     ${rows.map(r => `<tr>
       <td>${r['เช็คอิน'] ? `<span class="ci" title="เช็คอินแล้ว${r['เช็คอินโดย'] ? ' โดย ' + escapeHtml(r['เช็คอินโดย']) : ''}">✓</span>` : ''}${escapeHtml(r['ชื่อเล่น'])}<small>${escapeHtml(r['ชื่อ-นามสกุล'])}</small>${r['อีเมล'] ? `<small class="mail">${escapeHtml(r['อีเมล'])}${!decline && r['รหัสบัตร'] ? ` <button type="button" class="link-btn resend" data-mail="${escapeHtml(r['รหัสบัตร'])}">${r['ส่งบัตรทางอีเมล'] ? 'ส่งบัตรอีกครั้ง' : 'ส่งบัตร'}</button>` : ''}</small>` : ''}${!decline && r['แพ้อาหาร'] ? `<small class="allergy">แพ้: ${escapeHtml(r['แพ้อาหาร'])}</small>` : ''}</td>
       <td>${escapeHtml(r['ความสัมพันธ์'])}</td>
-      ${decline ? '' : `<td>${rowCount(r)}</td><td><select class="tbl-sel" data-id="${escapeHtml(r['รหัสบัตร'] || '')}" data-name="${escapeHtml(r['ชื่อ-นามสกุล'])}" aria-label="โต๊ะ">${opts(tableNum(r['โต๊ะ']))}</select></td>`}
+      ${decline ? '' : `<td>${rowSeats(r) !== rowCount(r) ? `<s>${rowCount(r)}</s> ${rowSeats(r)}` : rowCount(r)}</td><td><select class="tbl-sel" data-id="${escapeHtml(r['รหัสบัตร'] || '')}" data-name="${escapeHtml(r['ชื่อ-นามสกุล'])}" aria-label="โต๊ะ">${opts(tableNum(r['โต๊ะ']))}</select></td>`}
     </tr>`).join('')}
   </tbody></table>`;
   const note = document.getElementById('adminNote');
@@ -3292,7 +3497,7 @@ function showTab(tab){
   note.textContent = note.dataset.base + (dupCount > 0 ? ` · พบการลงทะเบียนซ้ำ ${dupCount} รายการ (นับเฉพาะครั้งล่าสุดแล้ว)` : '');
 }
 function exportCSV(){
-  const cols = ['ชื่อ-นามสกุล','ชื่อเล่น','อีเมล','ความสัมพันธ์','เข้าร่วมงาน','จำนวนคน','แพ้อาหาร','โต๊ะ','รหัสบัตร','ส่งบัตรทางอีเมล','เช็คอิน','เช็คอินโดย','submittedAt'];
+  const cols = ['ชื่อ-นามสกุล','ชื่อเล่น','อีเมล','ความสัมพันธ์','เข้าร่วมงาน','จำนวนคน','แพ้อาหาร','โต๊ะ','รหัสบัตร','ส่งบัตรทางอีเมล','เช็คอิน','เช็คอินโดย','มาจริง','submittedAt'];
   const order = { vip: 0, friends: 1, general: 2, reserve: 3, pending: 4, decline: 5 };
   const rows = regRows.slice().sort((a, b) => order[rowZone(a)] - order[rowZone(b)]);
   const q = v => `"${String(v == null ? '' : v).replace(/"/g, '""')}"`;
